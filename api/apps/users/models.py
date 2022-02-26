@@ -6,7 +6,7 @@ from model_utils.models import TimeStampedModel
 
 class CustomUser(TimeStampedModel, AbstractBaseUser, PermissionsMixin):
     username = models.CharField(unique=True, max_length=64)
-    telegram_id = models.CharField(max_length=64)
+    telegram_id = models.CharField(max_length=64, blank=True, null=True)
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=False)
     USERNAME_FIELD = 'username'
